@@ -16,7 +16,7 @@ node 'master.puppet.vm' {
 }
 
 node 'jenkinstest.puppet.vm' {
-  #include role::jenkins_server
+  include role::jenkins_server
     file {'/root/R_jenkinstest':
     ensure => file,
     #content => “Welcome to ${fqdn}”,
