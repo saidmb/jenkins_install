@@ -2,7 +2,7 @@ class jenkins (
   $url = 'https://pkg.jenkins.io/redhat-stable/jenkins.repo'
   $install_dir = '/var/lib/jenkins'
 ){
-/*****************************
+
   file { $install_dir:
     ensure => directory,
   }
@@ -40,5 +40,4 @@ class jenkins (
     enable  => true,
     require => Package['java'], Package['jenkins'], File['/etc/yum.repos.d/jenkins.repo'], File['/etc/sysconfig/jenkins']],
   }
-  *************************/
 }
