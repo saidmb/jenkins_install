@@ -1,4 +1,5 @@
 mod 'puppetlabs/stdlib'
+# mod 'puppetlabs-stdlib', '4.25.1'
 mod 'pltraining/dockeragent'
 mod 'garethr/docker'
 mod 'puppetlabs-inifile', '2.2.2'
