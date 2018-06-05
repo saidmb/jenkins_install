@@ -8,7 +8,7 @@ node default {
 
 node 'master.puppet.vm' {
   include role::master_server
-  file {'/root/README':
+  file {'/root/R_master':
     ensure => file,
     #content => “Welcome to ${fqdn}”,
     owner => 'root',
@@ -17,4 +17,9 @@ node 'master.puppet.vm' {
 
 node 'jenkinstest.puppet.vm' {
   #include role::jenkins_server
+    file {'/root/R_jenkinstest':
+    ensure => file,
+    #content => “Welcome to ${fqdn}”,
+    owner => 'root',
+  }
 }
