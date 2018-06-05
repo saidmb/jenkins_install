@@ -1,24 +1,26 @@
-ass jenkins (
-  $url = 'https://s3.amazonaws.com/Minecraft.Download/versions/1.12.1/minecraft_server.1.12.1.jar',
-  $install_dir = '/opt/minecraft'
+class jenkins (
+  $url = 'https://pkg.jenkins.io/redhat-stable/jenkins.repo'
+  $install_dir = '/var/lib/jenkins'
 ){
 
   file { $install_dir:
     ensure => directory,
   }
   
-  file { "${install_dir}/jenkins_server.jar":
+  file { '/etc/yum.repos.d/jenkins.repo':
     ensure => file,
-    source => $url,
+    source => 'https://pkg.jenkins.io/redhat-stable/jenkins.repo',
   }
+
+#rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 
   package {'java':
     ensure => present,
   }
 
-  file {'/etc/systemd/system/jenkins.service':
+  file {'/etc/sysconfig/jenkins':
     ensure => file,
-    source => 'puppet:///modules/jenkins/jenkins.service',
+    source => 'puppet:///modules/jenkins/jenkins',
   }
   
   service { 'jenkins':
