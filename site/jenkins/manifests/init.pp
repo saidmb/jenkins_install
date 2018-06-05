@@ -13,16 +13,20 @@ class jenkins (
     before => Service['jenkins'],
   }
 
-  exec { import_jenkins:
-  command     =>  '/bin/rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key',
-  cwd         => '/root'
-  creates     =>  '/etc/sysconfig/jenkins',
-  path        => ['/usr/bin', '/usr/sbin'],
-  #subscribe   => File['/etc/yum.repos.d/jenkins.repo'],
-  #refreshonly => true,
-}
-
   package {'java':
+    ensure => present,
+  }
+  
+  exec { import_jenkins:
+    command     =>  '/bin/rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key',
+    cwd         => '/root'
+    creates     =>  '/etc/sysconfig/jenkins',
+    path        => ['/usr/bin', '/usr/sbin'],
+    #subscribe   => File['/etc/yum.repos.d/jenkins.repo'],
+    #refreshonly => true,
+  }
+
+  package {'jenkins':
     ensure => present,
   }
 
@@ -34,6 +38,6 @@ class jenkins (
   service { 'jenkins':
     ensure  => running,
     enable  => true,
-    require => Package['java'], File['/etc/yum.repos.d/jenkins.repo'], File['/etc/sysconfig/jenkins']],
+    require => Package['java'], Package['jenkins'], File['/etc/yum.repos.d/jenkins.repo'], File['/etc/sysconfig/jenkins']],
   }
 }
