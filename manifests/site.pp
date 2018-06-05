@@ -15,6 +15,6 @@ node 'master.puppet.vm' {
   }
 }
 
-node 'jenkinstest.puppet.vm': {
+node 'jenkinstest.puppet.vm' {
   include role::jenkins_server
 }
