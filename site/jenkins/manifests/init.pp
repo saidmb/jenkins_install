@@ -10,6 +10,7 @@ class jenkins (
   file { '/etc/yum.repos.d/jenkins.repo':
     ensure => file,
     source => 'https://pkg.jenkins.io/redhat-stable/jenkins.repo',
+    before => Service['jenkins'],
   }
 
 #rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
@@ -24,7 +25,8 @@ class jenkins (
   }
   
   service { 'jenkins':
-    ensure => running,
-    enable => true,
+    ensure  => running,
+    enable  => true,
+    require => Package['java'], File['/etc/yum.repos.d/jenkins.repo'], File['/etc/sysconfig/jenkins']],
   }
 }
