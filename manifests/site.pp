@@ -10,7 +10,7 @@ node 'master.puppet.vm' {
   include role::master_server
   file {'/root/R_master':
     ensure => file,
-    content => Welcome to the project: 654',
+    content => 'Welcome to the project: 654',
     owner => 'root',
   }
 }
