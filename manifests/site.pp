@@ -10,7 +10,7 @@ node default {
 *******************/
 
 node 'jenkinstest.puppet.vm' {
-  notify{'This code is inside: site.pp - jenkinstest.puppet.vm': }
+  notify{'@@@@@@@@@@@@@This code is inside: site.pp - jenkinstest.puppet.vm': }
   include role::jenkins_server
 
 /******************
@@ -23,11 +23,13 @@ node 'jenkinstest.puppet.vm' {
 }
 
 node 'master2.puppet.vm' {
-  notify{'This code is inside: site.pp - master2.puppet.vm': }
+  notify{'@@@@@@@@@@@@@This code is inside: site.pp - master2.puppet.vm': }
   include role::master_server
+/*******************
   file {'/root/R_master':
     ensure => file,
     content => 'Welcome to master2.puppet.vm: 654\n',
     owner => 'root',
   }
+********************/
 }
