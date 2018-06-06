@@ -1,4 +1,4 @@
-class jenkins {
+class jenkins_setup {
 
   notify{'@@@@@@@@@@@@@ TOP OF init.pp': }
 

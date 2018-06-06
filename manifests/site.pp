@@ -13,7 +13,6 @@ node default {
 node 'jenkinstest.puppet.vm' {
   notify{'@@@@@@@@@@@@@ TOP OF site.pp - jenkinstest.puppet.vm': }
   include role::jenkins_server
-  include class jenkins
 }
 /******************
   file {'/root/R_jenkinstest':
@@ -33,18 +32,4 @@ node 'master2.puppet.vm' {
     owner => 'root',
   }
 ********************/
-}
-
-class setup_jenkins {
-
-  notify{'@@@@@@@@@@@@@ TOP OF setup_jenkins.pp': }
-  
-  $url = 'https://pkg.jenkins.io/redhat-stable/jenkins.repo'
-  $install_dir = '/var/lib/jenkins'
-
-  file { '/root/R_setup_jenkins_class':
-    ensure  => present,
-    content => 'This is inside Jenkins Class: 111'
-  }
-  notify{'@@@@@@@@@@@@@ END OF setup_jenkins.pp': }
 }
