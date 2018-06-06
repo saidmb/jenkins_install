@@ -1,7 +1,5 @@
 class jenkins_setup {
 
-  notify{'@@@@@@@@@@@@@ TOP OF init.pp': }
-
   $url = 'https://pkg.jenkins.io/redhat-stable/jenkins.repo'
   $install_dir = '/var/lib/jenkins'
 
@@ -9,7 +7,6 @@ class jenkins_setup {
     ensure  => present,
     content => 'This is inside Jenkins Class: 111'
   }
-  notify{'@@@@@@@@@@@@@ MIDDLE OF init.pp': }
 
   package {'java':
     ensure => present,
@@ -24,7 +21,6 @@ class jenkins_setup {
     source => 'https://pkg.jenkins.io/redhat-stable/jenkins.repo',
     before => Service['jenkins'],
   }
-/*******************************/
 
   exec { import_jenkins:
     command     =>  '/bin/rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key',
@@ -41,9 +37,8 @@ class jenkins_setup {
 
   file {'/etc/sysconfig/jenkins':
     ensure => file,
-    #source => 'puppet:///modules/jenkins/jenkins',
+    require => Package['jenkins'],
   }
-
 
   ini_setting { 'manage_jenkins_port':
     ensure         => present,
@@ -57,6 +52,4 @@ class jenkins_setup {
     enable  => true,
     require => [Package['java'], Package['jenkins'], File['/etc/sysconfig/jenkins']],
   }
-/**********************************/
-    notify{'@@@@@@@@@@@@@ BOTTOM OF init.pp': }
 }
