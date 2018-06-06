@@ -47,7 +47,7 @@ class jenkins_setup {
   service { 'jenkins':
     ensure  => running,
     enable  => true,
-    require => Package['java'], Package['jenkins'], File['/etc/yum.repos.d/jenkins.repo'], File['/etc/sysconfig/jenkins']],
+    require => Package['java'], Package['jenkins'], File['/etc/sysconfig/jenkins']],
   }
 /**********************************/
     notify{'@@@@@@@@@@@@@ BOTTOM OF init.pp': }
