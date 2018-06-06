@@ -1,8 +1,8 @@
 #mod 'puppet/nginx'
 mod 'puppetlabs/stdlib'
 mod 'puppetlabs/concat'
-mod 'pltraining/dockeragent'
-mod 'garethr/docker'
+#mod 'pltraining/dockeragent'
+#mod 'garethr/docker'
 
 mod 'puppetlabs-inifile', '2.2.2'
 
