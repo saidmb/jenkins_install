@@ -1,10 +1,10 @@
+mod 'puppetlabs-inifile', '2.2.2'
+
 #mod 'puppet/nginx'
-mod 'puppetlabs/stdlib'
-mod 'puppetlabs/concat'
+#mod 'puppetlabs/stdlib'
+#mod 'puppetlabs/concat'
 #mod 'pltraining/dockeragent'
 #mod 'garethr/docker'
-
-mod 'puppetlabs-inifile', '2.2.2'
 
 #mod 'rtyler-jenkins', '1.7.0'
 #mod 'puppetlabs-stdlib', '4.25.1'
