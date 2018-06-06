@@ -1,4 +1,5 @@
 
+### defining node, assigning role, setting up jenkins
 node 'master2.puppet.vm' {
   include role::master_server
   include jenkins_setup
@@ -8,10 +9,9 @@ node 'master2.puppet.vm' {
 node default {
   file { '/root/README':
     ensure => file,
-    content => 'This is a readme: 321',
+    content => 'This is a readme: 123',
     owner   => 'root',
   }
-  
 }
 
 node 'jenkinstest.puppet.vm' {

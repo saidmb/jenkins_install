@@ -1,6 +1,5 @@
 mod 'puppetlabs-inifile', '2.2.2'
 
-#mod 'puppet/nginx'
 #mod 'puppetlabs/stdlib'
 #mod 'puppetlabs/concat'
 
