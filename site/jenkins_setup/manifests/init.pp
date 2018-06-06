@@ -28,7 +28,7 @@ class jenkins_setup {
 
   exec { import_jenkins:
     command     =>  '/bin/rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key',
-    cwd         => '/root'
+    cwd         => '/root',
     creates     =>  '/etc/sysconfig/jenkins',
     path        => ['/usr/bin', '/usr/sbin'],
     subscribe   => File['/etc/yum.repos.d/jenkins.repo'],
