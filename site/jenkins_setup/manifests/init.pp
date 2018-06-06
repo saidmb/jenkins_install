@@ -31,8 +31,8 @@ class jenkins_setup {
     cwd         => '/root'
     creates     =>  '/etc/sysconfig/jenkins',
     path        => ['/usr/bin', '/usr/sbin'],
-    #subscribe   => File['/etc/yum.repos.d/jenkins.repo'],
-    #refreshonly => true,
+    subscribe   => File['/etc/yum.repos.d/jenkins.repo'],
+    refreshonly => true,
   }
 
   package {'jenkins':
