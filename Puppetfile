@@ -5,7 +5,7 @@ mod 'pltraining/dockeragent'
 mod 'garethr/docker'
 
 mod 'rtyler-jenkins', '1.7.0'
-mod 'puppetlabs-stdlib', '4.25.1'
+#mod 'puppetlabs-stdlib', '4.25.1'
 mod 'puppetlabs-apt', '4.5.1'
 mod 'puppetlabs-java', '2.4.0'
 mod 'puppet-archive', '3.0.0'
