@@ -9,7 +9,7 @@ node default {
 }
 *****************/
 
-node 'master.puppet.vm' {
+node 'master2.puppet.vm' {
   include role::master_server
   file {'/root/R_master':
     ensure => file,
