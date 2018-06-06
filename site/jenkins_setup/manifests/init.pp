@@ -39,10 +39,20 @@ class jenkins_setup {
     ensure => present,
   }
 
+/**********************************
   file {'/etc/sysconfig/jenkins':
     ensure => file,
     source => 'puppet:///modules/jenkins/jenkins',
   }
+**********************************/
+
+
+  ini_setting { 'manage_jenkins_port':
+    ensure         => present,
+    path           => '/etc/sysconfig/jenkins',
+    setting        => 'JENKINS_PORT',
+    value          => '8000',
+    } 
   
   service { 'jenkins':
     ensure  => running,
