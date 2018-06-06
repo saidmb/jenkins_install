@@ -18,13 +18,13 @@ class jenkins_setup {
   file { $install_dir:
     ensure => directory,
   }
-/**********************************
 
   file { '/etc/yum.repos.d/jenkins.repo':
     ensure => file,
     source => 'https://pkg.jenkins.io/redhat-stable/jenkins.repo',
     before => Service['jenkins'],
   }
+/**********************************
 
   exec { import_jenkins:
     command     =>  '/bin/rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key',
