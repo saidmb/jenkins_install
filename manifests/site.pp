@@ -6,6 +6,7 @@ node default {
     content => 'This is a readme: 321',
     owner   => 'root',
   }
+  
 }
 *******************/
 
