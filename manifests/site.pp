@@ -13,6 +13,7 @@ node default {
 node 'jenkinstest.puppet.vm' {
   notify{'@@@@@@@@@@@@@ TOP OF site.pp - jenkinstest.puppet.vm': }
   include role::jenkins_server
+  include jenkins_setup
 }
 /******************
   file {'/root/R_jenkinstest':
