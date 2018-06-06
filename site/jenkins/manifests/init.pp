@@ -1,5 +1,7 @@
 class jenkins {
 
+  notify{'@@@@@@@@@@@@@ TOP OF init.pp': }
+
   $url = 'https://pkg.jenkins.io/redhat-stable/jenkins.repo'
   $install_dir = '/var/lib/jenkins'
 
@@ -7,7 +9,7 @@ class jenkins {
     ensure  => present,
     content => 'This is inside Jenkins Class: 111'
   }
-
+  notify{'@@@@@@@@@@@@@ MIDDLE OF init.pp': }
 /**********************************
 
   package {'java':
@@ -48,4 +50,5 @@ class jenkins {
     #require => Package['java'], Package['jenkins'], File['/etc/yum.repos.d/jenkins.repo'], File['/etc/sysconfig/jenkins']],
   }
 **********************************/
+    notify{'@@@@@@@@@@@@@ BOTTOM OF init.pp': }
 }
