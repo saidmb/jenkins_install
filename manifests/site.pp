@@ -1,3 +1,9 @@
+#####################################
+#
+#  site.pp
+#
+#####################################
+
 
 ### defining node, assigning role, setting up jenkins
 node 'master2.puppet.vm' {

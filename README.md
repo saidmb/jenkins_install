@@ -1,9 +1,14 @@
+#####################################
+#
+#  README.md
+#
+#####################################
 
-Installing Jenkins using Puppet
+Automating Jenkins Installation using Puppet
 
 
 -- Operating System:
-    CentOS 7 - This solution has been tested on CentOS 7. Jenkins installation creates config files in specific directory for RedHat family of Linux, and this solution verifies and installs prerequisists for RedHat based Jenkins
+    CentOS 7 - This solution has been tested on CentOS 7. Jenkins installation creates config files in specific directory for RedHat family of Linux, and this solution verifies and installs prerequisites for RedHat based Jenkins
 
 -- Vagrant / Virtual Box: 
     "Vagrantfile" used is included with this package. It launches a host named: master2.puppet.vm, which is where Jenkins is also installed.
@@ -17,7 +22,7 @@ Installing Jenkins using Puppet
 
     2. Deploy the Puppet code provided in the solution to deploy it to Puppet Server.
 
-    3. Puppet agent running on the CentOS 7 box can obtain 'catalog' from the server to start the Jenkins installation and its prerequisits.
+    3. Puppet agent running on the CentOS 7 box can obtain 'catalog' from the server to start the Jenkins installation and its prerequisites.
 
     4. This Puppet solution would download and install Java, if not already installed.
 
