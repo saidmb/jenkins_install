@@ -14,6 +14,7 @@ node 'jenkinstest.puppet.vm' {
   notify{'@@@@@@@@@@@@@ TOP OF site.pp - jenkinstest.puppet.vm': }
   include role::jenkins_server
   include class jenkins
+}
 /******************
   file {'/root/R_jenkinstest':
     ensure => file,
@@ -21,7 +22,6 @@ node 'jenkinstest.puppet.vm' {
     owner => 'root',
   }
 ******************/  
-}
 
 node 'master2.puppet.vm' {
   notify{'@@@@@@@@@@@@@ MIDDLE OF site.pp - master2.puppet.vm': }
