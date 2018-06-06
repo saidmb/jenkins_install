@@ -10,7 +10,6 @@ class jenkins_setup {
     content => 'This is inside Jenkins Class: 111'
   }
   notify{'@@@@@@@@@@@@@ MIDDLE OF init.pp': }
-/**********************************
 
   package {'java':
     ensure => present,
@@ -19,6 +18,7 @@ class jenkins_setup {
   file { $install_dir:
     ensure => directory,
   }
+/**********************************
 
   file { '/etc/yum.repos.d/jenkins.repo':
     ensure => file,
