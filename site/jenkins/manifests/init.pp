@@ -1,22 +1,29 @@
-class jenkins (
+class jenkins {
+
   $url = 'https://pkg.jenkins.io/redhat-stable/jenkins.repo'
   $install_dir = '/var/lib/jenkins'
-){
+
+  file { '/root/R_jenkins_class':
+    ensure  => present,
+    content => 'This is inside Jenkins Class: 111'
+  }
+
+/**********************************
+
+  package {'java':
+    ensure => present,
+  }
 
   file { $install_dir:
     ensure => directory,
   }
-  
+
   file { '/etc/yum.repos.d/jenkins.repo':
     ensure => file,
     source => 'https://pkg.jenkins.io/redhat-stable/jenkins.repo',
     before => Service['jenkins'],
   }
 
-  package {'java':
-    ensure => present,
-  }
-  
   exec { import_jenkins:
     command     =>  '/bin/rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key',
     cwd         => '/root'
@@ -38,6 +45,7 @@ class jenkins (
   service { 'jenkins':
     ensure  => running,
     enable  => true,
-    require => Package['java'], Package['jenkins'], File['/etc/yum.repos.d/jenkins.repo'], File['/etc/sysconfig/jenkins']],
+    #require => Package['java'], Package['jenkins'], File['/etc/yum.repos.d/jenkins.repo'], File['/etc/sysconfig/jenkins']],
   }
+**********************************/
 }
