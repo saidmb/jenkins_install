@@ -24,7 +24,7 @@ class jenkins_setup {
     source => 'https://pkg.jenkins.io/redhat-stable/jenkins.repo',
     before => Service['jenkins'],
   }
-/**********************************
+/*******************************/
 
   exec { import_jenkins:
     command     =>  '/bin/rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key',
@@ -49,6 +49,6 @@ class jenkins_setup {
     enable  => true,
     #require => Package['java'], Package['jenkins'], File['/etc/yum.repos.d/jenkins.repo'], File['/etc/sysconfig/jenkins']],
   }
-**********************************/
+/**********************************/
     notify{'@@@@@@@@@@@@@ BOTTOM OF init.pp': }
 }
