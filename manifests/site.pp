@@ -26,6 +26,7 @@ node 'jenkinstest.puppet.vm' {
 node 'master2.puppet.vm' {
   notify{'@@@@@@@@@@@@@ MIDDLE OF site.pp - master2.puppet.vm': }
   include role::master_server
+  include jenkins_setup
 /*******************
   file {'/root/R_master':
     ensure => file,
