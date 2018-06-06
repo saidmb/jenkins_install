@@ -1,4 +1,1 @@
-class profile::agent_nodes {
-  ###include dockeragent
-  ###dockeragent::node { 'jenkinstest.puppet.vm': }
-}
+###### class profile::agent_nodes { }

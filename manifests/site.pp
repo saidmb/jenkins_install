@@ -1,4 +1,9 @@
 
+node 'master2.puppet.vm' {
+  include role::master_server
+  include jenkins_setup
+}
+
 /***************
 node default {
   file { '/root/README':
@@ -14,9 +19,3 @@ node 'jenkinstest.puppet.vm' {
   include jenkins_setup
 }
 *******************/
-
-
-node 'master2.puppet.vm' {
-  include role::master_server
-  include jenkins_setup
-}
